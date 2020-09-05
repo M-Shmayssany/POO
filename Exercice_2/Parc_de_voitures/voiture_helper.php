@@ -7,7 +7,7 @@ class Voiture{
     protected $mark;
     private $color;
     private $weight;
-    private $img;
+    public $img;
     function __construct($rn,$dataC,$mileage,$model,$mark,$color,$weight){
         $this->registrationNumber = $rn;
         $this->dateCirculation = date($dataC);
@@ -54,5 +54,16 @@ class Voiture{
     }
     function rouler($km){
         $this->mileage += $km;
+    }
+    function display(){
+
+        echo "<td>$this->registrationNumber</td>";
+        echo "<td>$this->dateCirculation</td>";
+        echo "<td>$this->mileage</td>";
+        echo "<td>$this->model</td>";
+        echo "<td>$this->mark</td>";
+        echo "<td>$this->color</td>";
+        echo "<td>$this->weight</td>";
+        echo "<td><img src='$this->img' alt='$this->model'></td>";
     }
 }
