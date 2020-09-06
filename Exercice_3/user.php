@@ -37,6 +37,16 @@ class User{
             echo "Error updating record: " . $conn->error;
         }
     }
+    function deleteRecord($id){
+        $conn = $this->connection;
+
+        if ($conn->query("DELETE FROM `$this->table` WHERE `id`=$id")){
+            echo "Record deleted successfully";
+        } else {
+            echo "Error deleted record: " . $conn->error;
+        }
+
+    }
     function session($id, $connection){
         $conn = $this->connection;
 

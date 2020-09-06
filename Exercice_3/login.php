@@ -8,7 +8,7 @@ if (isset($_POST['username'])){
   
   $db = new Database('localhost');
   $conn =  $db->connect();
-  $user = new User($conn); //TODO
+  $user = new User($conn);
   $data = $user->get('username', $name);
   if($data){
     if (isset($_POST['password'])){
@@ -19,7 +19,7 @@ if (isset($_POST['username'])){
         $_SESSION['id'] = $data['id'];
         $_SESSION['username'] = $data['username'];
         $_SESSION['email'] = $data['email'];
-        $_SESSION['password'] = $data['password'];
+        //$_SESSION['password'] = $data['password'];
         $user->session($_SESSION['id'], 1);
         header("Location: index.php");
       }else{

@@ -10,9 +10,9 @@ if (isset($_SESSION['username'])){
 }else{
     header("Location: login.php");
 }
-if(isset($_GET['submit'])){
-    $type = $_GET['type'];
-    $change = $_GET['change'];
+if(isset($_POST['submit'])){
+    $type = $_POST['type'];
+    $change = $_POST['change'];
     $db = new Database('localhost');
     $conn = $db->connect();
     $user = new User($conn);
@@ -34,7 +34,7 @@ if(isset($_GET['submit'])){
 <body>
 <h2>Change</h2>
 <?php echo $message; ?>
-    <form method="get" action="">
+    <form method="post" action="">
     <label for="type">Change by : </label>
     <select name="type" id="type">
     <option value="username">User name</option>
